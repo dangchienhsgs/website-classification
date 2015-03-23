@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="adflexwebsiteapi" default="all">
+  
+  
+  <property file="adflexwebsiteapi.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/SCCS/**"/>
+    <exclude name="**/RCS/**"/>
+    <exclude name="**/rcs/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/.pyc/**"/>
+    <exclude name="**/.pyo/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/*.lib/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/.bundle/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.war"/>
+    <include name="*.ear"/>
+    <include name="*.apk"/>
+    <include name="*.zip"/>
+    <include name="*.swc"/>
+    <include name="*.ane"/>
+    <include name="*.egg"/>
+    <include name="*.jar"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.7" value="${jdk.home.1.7}/bin"/>
+  <path id="jdk.classpath.1.7">
+    <fileset dir="${jdk.home.1.7}">
+      <include name="../java-1.7.0-openjdk-amd64/jre/lib/jsse.jar"/>
+      <include name="../java-1.7.0-openjdk-amd64/jre/lib/charsets.jar"/>
+      <include name="../java-1.7.0-openjdk-amd64/jre/lib/management-agent.jar"/>
+      <include name="../java-1.7.0-openjdk-amd64/jre/lib/rhino.jar"/>
+      <include name="../java-1.7.0-openjdk-amd64/jre/lib/jce.jar"/>
+      <include name="../java-1.7.0-openjdk-amd64/jre/lib/javazic.jar"/>
+      <include name="../java-1.7.0-openjdk-amd64/jre/lib/resources.jar"/>
+      <include name="../java-1.7.0-openjdk-amd64/jre/lib/rt.jar"/>
+      <include name="../java-1.7.0-openjdk-amd64/jre/lib/compilefontconfig.jar"/>
+      <include name="../java-1.7.0-openjdk-amd64/jre/lib/ext/icedtea-sound.jar"/>
+      <include name="../java-1.7.0-openjdk-amd64/jre/lib/ext/zipfs.jar"/>
+      <include name="../java-1.7.0-openjdk-amd64/jre/lib/ext/dnsns.jar"/>
+      <include name="../java-1.7.0-openjdk-amd64/jre/lib/ext/sunpkcs11.jar"/>
+      <include name="../java-1.7.0-openjdk-amd64/jre/lib/ext/java-atk-wrapper.jar"/>
+      <include name="../java-1.7.0-openjdk-amd64/jre/lib/ext/localedata.jar"/>
+      <include name="../java-1.7.0-openjdk-amd64/jre/lib/ext/sunjce_provider.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.7}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.7}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.7"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.commons-cli-1.2.classpath">
+    <pathelement location="${basedir}/web/WEB-INF/lib/commons-cli-1.2.jar"/>
+    <pathelement location="${basedir}/web/WEB-INF/lib/commons-codec-1.6.jar"/>
+    <pathelement location="${basedir}/web/WEB-INF/lib/commons-lang3-3.3.2.jar"/>
+    <pathelement location="${basedir}/web/WEB-INF/lib/commons-logging-1.1.3.jar"/>
+    <pathelement location="${basedir}/web/WEB-INF/lib/fluent-hc-4.3.6.jar"/>
+    <pathelement location="${basedir}/web/WEB-INF/lib/httpclient-4.3.6.jar"/>
+    <pathelement location="${basedir}/web/WEB-INF/lib/httpclient-cache-4.3.6.jar"/>
+    <pathelement location="${basedir}/web/WEB-INF/lib/httpcore-4.3.3.jar"/>
+    <pathelement location="${basedir}/web/WEB-INF/lib/httpmime-4.3.6.jar"/>
+    <pathelement location="${basedir}/web/WEB-INF/lib/json-simple-1.1.1.jar"/>
+    <pathelement location="${basedir}/web/WEB-INF/lib/junit.jar"/>
+    <pathelement location="${basedir}/web/WEB-INF/lib/lucene-core-3.6.2.jar"/>
+    <pathelement location="${basedir}/web/WEB-INF/lib/mahout-collections-1.0.jar"/>
+    <pathelement location="${basedir}/web/WEB-INF/lib/maxent-2.5.2.jar"/>
+    <pathelement location="${basedir}/web/WEB-INF/lib/mongo-java-driver-2.13.0-rc2.jar"/>
+    <pathelement location="${basedir}/web/WEB-INF/lib/opennlp-tools-1.4.3.jar"/>
+    <pathelement location="${basedir}/web/WEB-INF/lib/servlet-api.jar"/>
+    <pathelement location="${basedir}/web/WEB-INF/lib/stanford-corenlp-3.4.jar"/>
+    <pathelement location="${basedir}/web/WEB-INF/lib/trove.jar"/>
+    <pathelement location="${basedir}/web/WEB-INF/lib/vn.hus.nlp.fsm-1.0.0.jar"/>
+    <pathelement location="${basedir}/web/WEB-INF/lib/vn.hus.nlp.sd-2.0.0.jar"/>
+    <pathelement location="${basedir}/web/WEB-INF/lib/vn.hus.nlp.tokenizer-4.1.1.jar"/>
+    <pathelement location="${basedir}/web/WEB-INF/lib/vn.hus.nlp.utils-1.0.0.jar"/>
+    <pathelement location="${basedir}/web/WEB-INF/lib/weka.jar"/>
+  </path>
+  
+  <path id="library.jsoup-1.8.1.classpath">
+    <pathelement location="${basedir}/web/WEB-INF/lib/jsoup-1.8.1.jar"/>
+  </path>
+  
+  <path id="library.libs.classpath">
+    <pathelement location="${basedir}/../../../../mnt/Data/Backup/Current/JVnTextPro-v.2.0/libs/args4j.jar"/>
+    <pathelement location="${basedir}/../../../../mnt/Data/Backup/Current/JVnTextPro-v.2.0/libs/htmlparser.jar"/>
+    <pathelement location="${basedir}/../../../../mnt/Data/Backup/Current/JVnTextPro-v.2.0/libs/lbfgs.jar"/>
+  </path>
+  
+  <path id="library.stanford-corenlp-3.4-models.classpath">
+    <pathelement location="${basedir}/web/WEB-INF/lib/stanford-corenlp-3.4-models.jar"/>
+  </path>
+  
+  
+  <!-- Application Server Libraries -->
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <pathelement location="${javac2.home}/javac2.jar"/>
+    <pathelement location="${javac2.home}/jdom.jar"/>
+    <pathelement location="${javac2.home}/asm-all.jar"/>
+    <pathelement location="${javac2.home}/jgoodies-forms.jar"/>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  <import file="${basedir}/../../../../mnt/Data/Backup/Current/JVnTextPro-v.2.0/module_jvntextpro-v.2.0.xml"/>
+  
+  <import file="${basedir}/module_adflexwebsiteapi.xml"/>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.jvntextpro-v.2.0, clean.module.adflexwebsiteapi, clean.artifact.adflexwebsiteapi:war_exploded" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.jvntextpro-v.2.0, compile.module.adflexwebsiteapi" description="build all modules"/>
+  
+  <target name="init.artifacts">
+    <property name="artifacts.temp.dir" value="${basedir}/__artifacts_temp"/>
+    <property name="artifact.output.adflexwebsiteapi:war_exploded" value="${basedir}/out/artifacts/AdFlexWebsiteAPI_war_exploded"/>
+    <mkdir dir="${artifacts.temp.dir}"/>
+  </target>
+  
+  <target name="clean.artifact.adflexwebsiteapi:war_exploded" description="clean AdFlexWebsiteAPI:war exploded artifact output">
+    <delete dir="${artifact.output.adflexwebsiteapi:war_exploded}"/>
+  </target>
+  
+  <target name="artifact.adflexwebsiteapi:war_exploded" depends="init.artifacts, compile.module.adflexwebsiteapi, compile.module.jvntextpro-v.2.0" description="Build &#39;AdFlexWebsiteAPI:war exploded&#39; artifact">
+    <mkdir dir="${artifact.output.adflexwebsiteapi:war_exploded}"/>
+    <copy todir="${artifact.output.adflexwebsiteapi:war_exploded}">
+      <fileset dir="${basedir}/web"/>
+    </copy>
+    <mkdir dir="${artifact.output.adflexwebsiteapi:war_exploded}/WEB-INF"/>
+    <copy file="${basedir}/web/WEB-INF/web.xml" tofile="${artifact.output.adflexwebsiteapi:war_exploded}/WEB-INF/web.xml"/>
+    <mkdir dir="${artifact.output.adflexwebsiteapi:war_exploded}/WEB-INF"/>
+    <mkdir dir="${artifact.output.adflexwebsiteapi:war_exploded}/WEB-INF/classes"/>
+    <copy todir="${artifact.output.adflexwebsiteapi:war_exploded}/WEB-INF/classes">
+      <fileset dir="${adflexwebsiteapi.output.dir}"/>
+    </copy>
+    <copy todir="${artifact.output.adflexwebsiteapi:war_exploded}/WEB-INF/classes">
+      <fileset dir="${jvntextpro-v.2.0.output.dir}"/>
+    </copy>
+    <mkdir dir="${artifact.output.adflexwebsiteapi:war_exploded}/WEB-INF/lib"/>
+    <copy file="${basedir}/../../../../mnt/Data/Backup/Current/JVnTextPro-v.2.0/libs/htmlparser.jar" tofile="${artifact.output.adflexwebsiteapi:war_exploded}/WEB-INF/lib/htmlparser.jar"/>
+    <copy file="${basedir}/../../../../mnt/Data/Backup/Current/JVnTextPro-v.2.0/libs/lbfgs.jar" tofile="${artifact.output.adflexwebsiteapi:war_exploded}/WEB-INF/lib/lbfgs.jar"/>
+    <copy file="${basedir}/../../../../mnt/Data/Backup/Current/JVnTextPro-v.2.0/libs/args4j.jar" tofile="${artifact.output.adflexwebsiteapi:war_exploded}/WEB-INF/lib/args4j.jar"/>
+    <copy file="${basedir}/web/WEB-INF/lib/jsoup-1.8.1.jar" tofile="${artifact.output.adflexwebsiteapi:war_exploded}/WEB-INF/lib/jsoup-1.8.1.jar"/>
+  </target>
+  
+  <target name="build.all.artifacts" depends="artifact.adflexwebsiteapi:war_exploded" description="Build all artifacts">
+    
+    <!-- Delete temporary files -->
+    <delete dir="${artifacts.temp.dir}"/>
+  </target>
+  
+  <target name="all" depends="build.modules, build.all.artifacts" description="build all"/>
+</project>
