@@ -1,0 +1,2 @@
+http://www.cybersitter.com/|SonicWALL - Blocked by GeoIP Filter.
+sonicwall block geoip filter gateway geo ip alert request block sonicwall gateway geo ip service country vietnam initiator ip 

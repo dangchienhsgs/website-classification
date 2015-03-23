@@ -1,0 +1,2 @@
+http://goo.gl/IohcGk|
+midlet vendor weplay vn_manifest version microedition profile _ midp nokia midlet category game ant version apache_ant midlet name fruit_ninja microedition configuration _ cldc midlet fruit_ninj icon pn main fruitninjamidlet midlet permissions _ javax microedition io connector htt javax microe_created by __ b sun_microsystems inc _ midlet version midlet jar size midlet jar url _ http cucdinh mobi upload mode user website modegame _ chem_hoa_qua jar 

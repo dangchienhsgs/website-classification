@@ -1,0 +1,2 @@
+http://tamnhin.net/social_provider.api?provider=google|Sign in - Google Accounts
+sign google_accounts sign with_your google_account email_password need_help create account_one google_account for_everything google_about google_privacy terms_help 

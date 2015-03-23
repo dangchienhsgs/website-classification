@@ -1,0 +1,52 @@
+<mongo>
+
+    <mongo-host>localhost</mongo-host>
+    <mongo-port>27017</mongo-port>
+
+    <mongo-db>eway</mongo-db>
+    <mongo-collection>domain</mongo-collection>
+
+    <model-directory>data/models</model-directory>
+    <class>
+        <class-params name = "Store">
+            <train-data>data/preprocessedData/store_en</train-data>
+            <train-data>data/preprocessedData/store_vi</train-data>
+            <train-data>data/preprocessedData/app_review_en</train-data>
+
+            <special-words>apk,store,ios,iphone,cuahang,ungdung,caidat,install,tai,winphone,ios,game,download,android,applications,hvga,down,ứng dụng, cài_đặt,cửa hàng,app</special-words>
+        </class-params>
+
+        <class-params name = "News">
+            <train-data>data/preprocessedData/news_vi</train-data>
+            <train-data>data/preprocessedData/news_en</train-data>
+            <special-words>news,bao,times,doc,thongtin,tin,thông tin,tin,báo chí,tintức</special-words>
+        </class-params>
+
+        <class-params name = "Stories">
+            <train-data>data/preprocessedData/stories_vi</train-data>
+            <special-words>truyen,kiemhiep,ngontinh,truyện,sách,thư viện,book,epub,pdf</special-words>
+        </class-params>
+
+        <class-params name = "Music">
+            <train-data>data/preprocessedData/music_vi</train-data>
+            <special-words>music,nhac,mp3,amnhac,sing,âm nhạc,bài hát,nghe,mp4,phim,film,video</special-words>
+        </class-params>
+    </class>
+
+
+    <dictionary>
+        <words>data/preprocessedData/news_en_words.txt</words>
+        <words>data/preprocessedData/news_vi_words.txt</words>
+        <words>data/preprocessedData/store_en_words.txt</words>
+        <words>data/preprocessedData/store_vi_words.txt</words>
+        <words>data/preprocessedData/truyen_vi_words.txt</words>
+        <words>data/preprocessedData/app_review_en_words.txt</words>
+        <words>data/preprocessedData/music_vi_words.txt</words>
+    </dictionary>
+
+    <sex>
+        <word-list>data/preprocessedData/google_blacklist_final.txt</word-list>
+        <word-list>data/preprocessedData/vietnamese_sex_words.txt</word-list>
+    </sex>
+
+</mongo>
