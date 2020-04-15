@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_adflexwebsiteapi" default="compile.module.adflexwebsiteapi">
+  <dirname property="module.adflexwebsiteapi.basedir" file="${ant.file.module_adflexwebsiteapi}"/>
+  
+  <property name="module.jdk.home.adflexwebsiteapi" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.adflexwebsiteapi" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.adflexwebsiteapi" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.adflexwebsiteapi" value="-encoding UTF-8 -source 1.6 ${compiler.args}"/>
+  
+  <property name="adflexwebsiteapi.output.dir" value="${module.adflexwebsiteapi.basedir}/out/production/AdFlexWebsiteAPI"/>
+  <property name="adflexwebsiteapi.testoutput.dir" value="${module.adflexwebsiteapi.basedir}/out/test/AdFlexWebsiteAPI"/>
+  
+  <path id="adflexwebsiteapi.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="adflexwebsiteapi.module.production.classpath">
+    <path refid="${module.jdk.classpath.adflexwebsiteapi}"/>
+    <path refid="library.commons-cli-1.2.classpath"/>
+    <path refid="library.jsoup-1.8.1.classpath"/>
+    <pathelement location="${jvntextpro-v.2.0.output.dir}"/>
+    <path refid="library.stanford-corenlp-3.4-models.classpath"/>
+  </path>
+  
+  <path id="adflexwebsiteapi.runtime.production.module.classpath">
+    <pathelement location="${adflexwebsiteapi.output.dir}"/>
+    <path refid="library.commons-cli-1.2.classpath"/>
+    <path refid="library.jsoup-1.8.1.classpath"/>
+    <path refid="jvntextpro-v.2.0.runtime.production.module.classpath"/>
+    <path refid="library.stanford-corenlp-3.4-models.classpath"/>
+  </path>
+  
+  <path id="adflexwebsiteapi.module.classpath">
+    <path refid="${module.jdk.classpath.adflexwebsiteapi}"/>
+    <pathelement location="${adflexwebsiteapi.output.dir}"/>
+    <path refid="library.commons-cli-1.2.classpath"/>
+    <path refid="library.jsoup-1.8.1.classpath"/>
+    <pathelement location="${jvntextpro-v.2.0.testoutput.dir}"/>
+    <pathelement location="${jvntextpro-v.2.0.output.dir}"/>
+    <path refid="library.stanford-corenlp-3.4-models.classpath"/>
+  </path>
+  
+  <path id="adflexwebsiteapi.runtime.module.classpath">
+    <pathelement location="${adflexwebsiteapi.testoutput.dir}"/>
+    <pathelement location="${adflexwebsiteapi.output.dir}"/>
+    <path refid="library.commons-cli-1.2.classpath"/>
+    <path refid="library.jsoup-1.8.1.classpath"/>
+    <path refid="jvntextpro-v.2.0.runtime.module.classpath"/>
+    <path refid="library.stanford-corenlp-3.4-models.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.adflexwebsiteapi">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.adflexwebsiteapi">
+    <patternset refid="excluded.from.module.adflexwebsiteapi"/>
+  </patternset>
+  
+  <path id="adflexwebsiteapi.module.sourcepath">
+    <dirset dir="${module.adflexwebsiteapi.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.adflexwebsiteapi" depends="compile.module.adflexwebsiteapi.production,compile.module.adflexwebsiteapi.tests" description="Compile module AdFlexWebsiteAPI"/>
+  
+  <target name="compile.module.adflexwebsiteapi.production" depends="register.custom.compilers,compile.module.jvntextpro-v.2.0" description="Compile module AdFlexWebsiteAPI; production classes">
+    <mkdir dir="${adflexwebsiteapi.output.dir}"/>
+    <javac2 destdir="${adflexwebsiteapi.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.adflexwebsiteapi}/javac">
+      <compilerarg line="${compiler.args.adflexwebsiteapi}"/>
+      <bootclasspath refid="adflexwebsiteapi.module.bootclasspath"/>
+      <classpath refid="adflexwebsiteapi.module.production.classpath"/>
+      <src refid="adflexwebsiteapi.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.adflexwebsiteapi"/>
+    </javac2>
+    
+    <copy todir="${adflexwebsiteapi.output.dir}">
+      <fileset dir="${module.adflexwebsiteapi.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.adflexwebsiteapi.tests" depends="register.custom.compilers,compile.module.adflexwebsiteapi.production" description="compile module AdFlexWebsiteAPI; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.adflexwebsiteapi" description="cleanup module">
+    <delete dir="${adflexwebsiteapi.output.dir}"/>
+    <delete dir="${adflexwebsiteapi.testoutput.dir}"/>
+  </target>
+</project>
